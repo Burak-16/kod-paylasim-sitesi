@@ -1,0 +1,60 @@
+<title>RabeL Code | {{member.user.username}}</title> <br><br> <div class="container">
+    <div>
+
+      <center>
+      <a href="https://discordapp.com/users/{{member.user.id}}" class="twPc-avatarLink">
+        <img alt="Avatar" src="{{avatarURL}}" class="twPc-avatarImg">
+      </a>
+      <div class="twPc-divUser">
+        <div class="twPc-divName">
+          {{member.user.username}}
+        </div>
+
+        
+        <div class="twPc-divStats">
+        <ul class="twPc-Arrange">
+          <a href="/normal" style="text-decoration:none" class="index-button1"><i class="fas fa-code"></i> Normal Kodlar</a>
+          {{#if perms.yetkili}}
+       <a href="/altin"  style="text-decoration:none" class="index-button2"><i class="fas fa-code"></i> Altın Kodlar</a>
+       <a href="/elmas" style="text-decoration:none" class="index-button3"><i class="fas fa-code"></i> Elmas Kodlar</a>
+       <a href="/hazir" style="text-decoration:none" class="index-button4"><i class="fas fa-code"></i> Hazır Sistemler</a>
+          {{else}}
+            {{#if perms.destekçi}}
+            <a href="/altin"  style="text-decoration:none" class="index-button2"><i class="fas fa-code"></i> Altın Kodlar</a>
+            <a href="/elmas" style="text-decoration:none" class="index-button3"><i class="fas fa-code"></i> Elmas Kodlar</a>
+            <a href="/hazir" style="text-decoration:none" class="index-button4"><i class="fas fa-code"></i> Hazır Sistemler</a>
+            {{else}}
+              {{#if perms.altin}}
+            <a href="/altin"  style="text-decoration:none" class="index-button2"><i class="fas fa-code"></i> Altın Kodlar</a>
+              {{/if}}
+              {{#if perms.elmas}}
+            <a href="/elmas" style="text-decoration:none" class="index-button3"><i class="fas fa-code"></i> Elmas Kodlar</a>
+              {{/if}}
+              {{#if perms.hazir}}
+           <a href="/hazir" style="text-decoration:none" class="index-button4"><i class="fas fa-code"></i> Hazır Sistemler</a>
+              {{/if}}
+            {{/if}}
+          {{/if}}  
+        </ul>
+      </div>
+        
+<hr>
+                <span>
+          {{#if perms.yetkili}}
+            <span>Kod Paylaşım Yetkilisi</span>
+          {{else}}
+            {{#if perms.destekçi}}
+              <span>RabeL Code Destekçisi</span>
+            {{else}}
+              <span>Kullanıcı</span>
+            {{/if}}
+          {{/if}}
+        </span>
+    </div>
+        
+        Paylaştığı Kodlar <font color="red">&</font> Yardım Ettiği Kodlar ( <font color="#0069d9">{{#if stats}} {{stats.paylasilan}} {{/if}} </font> )
+
+  </div>
+      </center>
+</div>
+
